@@ -1,0 +1,287 @@
+Release 13.1 Map O.40d (nt)
+Xilinx Mapping Report File for Design 'Core'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s50-pq208-5 -cm area -ir off -pr off -c
+100 -o Core_map.ncd Core.ngd Core.pcf 
+Target Device  : xc3s50
+Target Package : pq208
+Target Speed   : -5
+Mapper Version : spartan3 -- $Revision: 1.55 $
+Mapped Date    : Sun Mar 16 13:47:56 2014
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:    1
+Logic Utilization:
+Logic Distribution:
+    Number of Slices containing only related logic:       0 out of       0   0%
+    Number of Slices containing unrelated logic:          0 out of       0   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Number of bonded IOBs:                 18 out of     124   14%
+
+Peak Memory Usage:  184 MB
+Total REAL time to MAP completion:  1 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:MapLib:701 - Signal clk connected to top level port clk has been
+   removed.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network nrst has no load.
+INFO:LIT:395 - The above info message is repeated 98 more times for the
+   following (max. 5 shown):
+   daddr<7>,
+   daddr<6>,
+   iaddr<31>,
+   iaddr<30>,
+   iaddr<29>
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+  18 block(s) removed
+   1 block(s) optimized away
+  77 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+The signal "clk_BUFGP/IBUFG" is sourceless and has been removed.
+ Sourceless block "clk_BUFGP/BUFG" (CKBUF) removed.
+  The signal "clk_BUFGP" is sourceless and has been removed.
+The signal "imem/douta<31>" is sourceless and has been removed.
+The signal "imem/douta<30>" is sourceless and has been removed.
+The signal "imem/douta<29>" is sourceless and has been removed.
+The signal "imem/douta<28>" is sourceless and has been removed.
+The signal "imem/douta<27>" is sourceless and has been removed.
+The signal "imem/douta<26>" is sourceless and has been removed.
+The signal "imem/douta<25>" is sourceless and has been removed.
+The signal "imem/douta<24>" is sourceless and has been removed.
+The signal "imem/douta<23>" is sourceless and has been removed.
+The signal "imem/douta<22>" is sourceless and has been removed.
+The signal "imem/douta<21>" is sourceless and has been removed.
+The signal "imem/douta<20>" is sourceless and has been removed.
+The signal "imem/douta<19>" is sourceless and has been removed.
+The signal "imem/douta<18>" is sourceless and has been removed.
+The signal "imem/douta<17>" is sourceless and has been removed.
+The signal "imem/douta<16>" is sourceless and has been removed.
+The signal "imem/douta<15>" is sourceless and has been removed.
+The signal "imem/douta<14>" is sourceless and has been removed.
+The signal "imem/douta<13>" is sourceless and has been removed.
+The signal "imem/douta<12>" is sourceless and has been removed.
+The signal "imem/douta<11>" is sourceless and has been removed.
+The signal "imem/douta<10>" is sourceless and has been removed.
+The signal "imem/douta<9>" is sourceless and has been removed.
+The signal "imem/douta<8>" is sourceless and has been removed.
+The signal "imem/douta<7>" is sourceless and has been removed.
+The signal "imem/douta<6>" is sourceless and has been removed.
+The signal "imem/douta<5>" is sourceless and has been removed.
+The signal "imem/douta<4>" is sourceless and has been removed.
+The signal "imem/douta<3>" is sourceless and has been removed.
+The signal "imem/douta<2>" is sourceless and has been removed.
+The signal "imem/douta<1>" is sourceless and has been removed.
+The signal "imem/douta<0>" is sourceless and has been removed.
+The signal "imem/N0" is sourceless and has been removed.
+The signal "imem/N1" is sourceless and has been removed.
+The signal "dmem_0/douta<7>" is sourceless and has been removed.
+The signal "dmem_0/douta<6>" is sourceless and has been removed.
+The signal "dmem_0/douta<5>" is sourceless and has been removed.
+The signal "dmem_0/douta<4>" is sourceless and has been removed.
+The signal "dmem_0/douta<3>" is sourceless and has been removed.
+The signal "dmem_0/douta<2>" is sourceless and has been removed.
+The signal "dmem_0/douta<1>" is sourceless and has been removed.
+The signal "dmem_0/douta<0>" is sourceless and has been removed.
+The signal "dmem_0/N0" is sourceless and has been removed.
+The signal "dmem_0/N1" is sourceless and has been removed.
+The signal "dmem_1/douta<7>" is sourceless and has been removed.
+The signal "dmem_1/douta<6>" is sourceless and has been removed.
+The signal "dmem_1/douta<5>" is sourceless and has been removed.
+The signal "dmem_1/douta<4>" is sourceless and has been removed.
+The signal "dmem_1/douta<3>" is sourceless and has been removed.
+The signal "dmem_1/douta<2>" is sourceless and has been removed.
+The signal "dmem_1/douta<1>" is sourceless and has been removed.
+The signal "dmem_1/douta<0>" is sourceless and has been removed.
+The signal "dmem_1/N0" is sourceless and has been removed.
+The signal "dmem_1/N1" is sourceless and has been removed.
+The signal "dmem_2/douta<7>" is sourceless and has been removed.
+The signal "dmem_2/douta<6>" is sourceless and has been removed.
+The signal "dmem_2/douta<5>" is sourceless and has been removed.
+The signal "dmem_2/douta<4>" is sourceless and has been removed.
+The signal "dmem_2/douta<3>" is sourceless and has been removed.
+The signal "dmem_2/douta<2>" is sourceless and has been removed.
+The signal "dmem_2/douta<1>" is sourceless and has been removed.
+The signal "dmem_2/douta<0>" is sourceless and has been removed.
+The signal "dmem_2/N0" is sourceless and has been removed.
+The signal "dmem_2/N1" is sourceless and has been removed.
+The signal "dmem_3/douta<7>" is sourceless and has been removed.
+The signal "dmem_3/douta<6>" is sourceless and has been removed.
+The signal "dmem_3/douta<5>" is sourceless and has been removed.
+The signal "dmem_3/douta<4>" is sourceless and has been removed.
+The signal "dmem_3/douta<3>" is sourceless and has been removed.
+The signal "dmem_3/douta<2>" is sourceless and has been removed.
+The signal "dmem_3/douta<1>" is sourceless and has been removed.
+The signal "dmem_3/douta<0>" is sourceless and has been removed.
+The signal "dmem_3/N0" is sourceless and has been removed.
+The signal "dmem_3/N1" is sourceless and has been removed.
+
+The trimmed logic reported below is either:
+   1. part of a cycle
+   2. part of disabled logic
+   3. a side-effect of other trimmed logic
+
+The signal "clk" is unused and has been removed.
+ Unused block "clk" (PAD) removed.
+Unused block
+"dmem_0/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloo
+p[0].ram.r/s3_noinit.ram/spram.ram" (RAMB16_S36_S36) removed.
+Unused block "dmem_0/XST_GND" (ZERO) removed.
+Unused block "dmem_0/XST_VCC" (ONE) removed.
+Unused block
+"dmem_1/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloo
+p[0].ram.r/s3_noinit.ram/spram.ram" (RAMB16_S36_S36) removed.
+Unused block "dmem_1/XST_GND" (ZERO) removed.
+Unused block "dmem_1/XST_VCC" (ONE) removed.
+Unused block
+"dmem_2/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloo
+p[0].ram.r/s3_noinit.ram/spram.ram" (RAMB16_S36_S36) removed.
+Unused block "dmem_2/XST_GND" (ZERO) removed.
+Unused block "dmem_2/XST_VCC" (ONE) removed.
+Unused block
+"dmem_3/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloo
+p[0].ram.r/s3_noinit.ram/spram.ram" (RAMB16_S36_S36) removed.
+Unused block "dmem_3/XST_GND" (ZERO) removed.
+Unused block "dmem_3/XST_VCC" (ONE) removed.
+Unused block
+"imem/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_gen/valid.cstr/ramloop[
+0].ram.r/s3_init.ram/spram.ram" (RAMB16_S36_S36) removed.
+Unused block "imem/XST_GND" (ZERO) removed.
+Unused block "imem/XST_VCC" (ONE) removed.
+Unused block "clk_BUFGP/IBUFG" (CKBUF) removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| daddr<0>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| daddr<1>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| daddr<2>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| daddr<3>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| daddr<4>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| daddr<5>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<0>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<1>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<2>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<3>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<4>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<5>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<6>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| dout<7>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| wr<0>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| wr<1>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| wr<2>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| wr<3>                              | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

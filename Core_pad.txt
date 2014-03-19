@@ -1,0 +1,238 @@
+Release 13.1 - par O.40d (nt)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+
+Sun Mar 16 13:48:02 2014
+
+
+INFO: The IO information is provided in three file formats as part of the Place and Route (PAR) process.  These formats are:
+1. The <design name>_pad.txt file (this file) designed to provide information on IO usage in a human readable ASCII text format viewable through common text editors.
+2. The <design namd>_pad.csv file for use with spreadsheet programs such as MS Excel. This file can also be read by PACE to communicate post PAR IO information.
+3. The <design name>.pad file designed for parsing by customers.  It uses the "|" as a data field separator.
+
+INPUT FILE:       Core_map.ncd
+OUTPUT FILE:      Core_pad.txt
+PART TYPE:        xc3s50
+SPEED GRADE:      -5
+PACKAGE:          pq208
+
+Pinout by Pin Number:
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|Pin Number|Signal Name|Pin Usage|Pin Name           |Direction|IO Standard|IO Bank Number|Drive (mA)|Slew Rate|Termination|IOB Delay|Voltage  |Constraint|IO Register|Signal Integrity|
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|P1        |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P2        |           |DIFFM    |IO_L01P_7/VRN_7    |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P3        |           |DIFFS    |IO_L01N_7/VRP_7    |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P4        |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P5        |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P6        |           |         |VCCO_7             |         |           |7             |          |         |           |         |any******|          |           |                |
+|P7        |           |DIFFM    |IO_L19P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P8        |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P9        |           |DIFFS    |IO_L19N_7/VREF_7   |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P10       |           |DIFFM    |IO_L20P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P11       |           |DIFFS    |IO_L20N_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P12       |           |DIFFM    |IO_L21P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P13       |           |DIFFS    |IO_L21N_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P14       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P15       |           |DIFFM    |IO_L22P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P16       |           |DIFFS    |IO_L22N_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P17       |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P18       |           |DIFFM    |IO_L23P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P19       |           |DIFFS    |IO_L23N_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P20       |           |DIFFM    |IO_L24P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P21       |           |DIFFS    |IO_L24N_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P22       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P23       |           |         |VCCO_7             |         |           |7             |          |         |           |         |any******|          |           |                |
+|P24       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P25       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P26       |           |DIFFM    |IO_L40P_7          |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P27       |           |DIFFS    |IO_L40N_7/VREF_7   |UNUSED   |           |7             |          |         |           |         |         |          |           |                |
+|P28       |           |DIFFM    |IO_L40P_6/VREF_6   |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P29       |           |DIFFS    |IO_L40N_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P30       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P31       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P32       |           |         |VCCO_6             |         |           |6             |          |         |           |         |any******|          |           |                |
+|P33       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P34       |           |DIFFM    |IO_L24P_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P35       |           |DIFFS    |IO_L24N_6/VREF_6   |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P36       |           |DIFFM    |IO_L23P_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P37       |           |DIFFS    |IO_L23N_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P38       |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P39       |           |DIFFM    |IO_L22P_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P40       |           |DIFFS    |IO_L22N_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P41       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P42       |           |DIFFM    |IO_L21P_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P43       |           |DIFFS    |IO_L21N_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P44       |           |DIFFM    |IO_L20P_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P45       |           |DIFFS    |IO_L20N_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P46       |           |DIFFM    |IO_L19P_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P47       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P48       |           |DIFFS    |IO_L19N_6          |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P49       |           |         |VCCO_6             |         |           |6             |          |         |           |         |any******|          |           |                |
+|P50       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P51       |           |DIFFM    |IO_L01P_6/VRN_6    |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P52       |           |DIFFS    |IO_L01N_6/VRP_6    |UNUSED   |           |6             |          |         |           |         |         |          |           |                |
+|P53       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P54       |           |         |M1                 |         |           |              |          |         |           |         |         |          |           |                |
+|P55       |           |         |M0                 |         |           |              |          |         |           |         |         |          |           |                |
+|P56       |           |         |M2                 |         |           |              |          |         |           |         |         |          |           |                |
+|P57       |daddr<0>   |IOB      |IO_L01P_5/CS_B     |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P58       |daddr<1>   |IOB      |IO_L01N_5/RDWR_B   |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P59       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P60       |           |         |VCCO_5             |         |           |5             |          |         |           |         |2.50     |          |           |                |
+|P61       |daddr<2>   |IOB      |IO_L10P_5/VRN_5    |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P62       |daddr<3>   |IOB      |IO_L10N_5/VRP_5    |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P63       |daddr<4>   |IOB      |IO                 |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P64       |daddr<5>   |IOB      |IO_L27P_5          |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P65       |dout<0>    |IOB      |IO_L27N_5/VREF_5   |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P66       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P67       |dout<1>    |IOB      |IO_L28P_5/D7       |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P68       |dout<2>    |IOB      |IO_L28N_5/D6       |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P69       |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P70       |           |         |VCCINT             |         |           |              |          |         |           |         |1.2      |          |           |                |
+|P71       |dout<3>    |IOB      |IO                 |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P72       |dout<4>    |IOB      |IO_L31P_5/D5       |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P73       |           |         |VCCO_5             |         |           |5             |          |         |           |         |2.50     |          |           |                |
+|P74       |dout<5>    |IOB      |IO_L31N_5/D4       |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P75       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P76       |dout<6>    |IOB      |IO_L32P_5/GCLK2    |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P77       |dout<7>    |IOB      |IO_L32N_5/GCLK3    |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P78       |wr<0>      |IOB      |IO/VREF_5          |OUTPUT   |LVCMOS25*  |5             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P79       |wr<1>      |IOB      |IO_L32P_4/GCLK0    |OUTPUT   |LVCMOS25*  |4             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P80       |wr<2>      |IOB      |IO_L32N_4/GCLK1    |OUTPUT   |LVCMOS25*  |4             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P81       |wr<3>      |IOB      |IO_L31P_4/DOUT/BUSY|OUTPUT   |LVCMOS25*  |4             |12        |SLOW     |NONE**     |         |         |UNLOCATED |NO         |NONE            |
+|P82       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P83       |           |DIFFS    |IO_L31N_4/INIT_B   |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P84       |           |         |VCCO_4             |         |           |4             |          |         |           |         |2.50     |          |           |                |
+|P85       |           |IOB      |IO/VREF_4          |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P86       |           |DIFFM    |IO_L30P_4/D3       |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P87       |           |DIFFS    |IO_L30N_4/D2       |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P88       |           |         |VCCINT             |         |           |              |          |         |           |         |1.2      |          |           |                |
+|P89       |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P90       |           |DIFFM    |IO_L27P_4/D1       |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P91       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P92       |           |DIFFS    |IO_L27N_4/DIN/D0   |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P93       |           |IOB      |IO                 |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P94       |           |DIFFM    |IO_L25P_4          |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P95       |           |DIFFS    |IO_L25N_4          |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P96       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P97       |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P98       |           |         |VCCO_4             |         |           |4             |          |         |           |         |2.50     |          |           |                |
+|P99       |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P100      |           |DIFFM    |IO_L01P_4/VRN_4    |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P101      |           |DIFFS    |IO_L01N_4/VRP_4    |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P102      |           |IOB      |IO/VREF_4          |UNUSED   |           |4             |          |         |           |         |         |          |           |                |
+|P103      |           |         |DONE               |         |           |              |          |         |           |         |         |          |           |                |
+|P104      |           |         |CCLK               |         |           |              |          |         |           |         |         |          |           |                |
+|P105      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P106      |           |DIFFM    |IO_L01P_3/VRN_3    |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P107      |           |DIFFS    |IO_L01N_3/VRP_3    |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P108      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P109      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P110      |           |         |VCCO_3             |         |           |3             |          |         |           |         |any******|          |           |                |
+|P111      |           |DIFFM    |IO_L19P_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P112      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P113      |           |DIFFS    |IO_L19N_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P114      |           |DIFFM    |IO_L20P_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P115      |           |DIFFS    |IO_L20N_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P116      |           |DIFFM    |IO_L21P_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P117      |           |DIFFS    |IO_L21N_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P118      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P119      |           |DIFFM    |IO_L22P_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P120      |           |DIFFS    |IO_L22N_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P121      |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P122      |           |DIFFM    |IO_L23P_3/VREF_3   |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P123      |           |DIFFS    |IO_L23N_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P124      |           |DIFFM    |IO_L24P_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P125      |           |DIFFS    |IO_L24N_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P126      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P127      |           |         |VCCO_3             |         |           |3             |          |         |           |         |any******|          |           |                |
+|P128      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P129      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P130      |           |DIFFM    |IO_L40P_3          |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P131      |           |DIFFS    |IO_L40N_3/VREF_3   |UNUSED   |           |3             |          |         |           |         |         |          |           |                |
+|P132      |           |DIFFM    |IO_L40P_2/VREF_2   |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P133      |           |DIFFS    |IO_L40N_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P134      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P135      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P136      |           |         |VCCO_2             |         |           |2             |          |         |           |         |any******|          |           |                |
+|P137      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P138      |           |DIFFM    |IO_L24P_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P139      |           |DIFFS    |IO_L24N_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P140      |           |DIFFM    |IO_L23P_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P141      |           |DIFFS    |IO_L23N_2/VREF_2   |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P142      |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P143      |           |DIFFM    |IO_L22P_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P144      |           |DIFFS    |IO_L22N_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P145      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P146      |           |DIFFM    |IO_L21P_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P147      |           |DIFFS    |IO_L21N_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P148      |           |DIFFM    |IO_L20P_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P149      |           |DIFFS    |IO_L20N_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P150      |           |DIFFM    |IO_L19P_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P151      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P152      |           |DIFFS    |IO_L19N_2          |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P153      |           |         |VCCO_2             |         |           |2             |          |         |           |         |any******|          |           |                |
+|P154      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P155      |           |DIFFM    |IO_L01P_2/VRN_2    |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P156      |           |DIFFS    |IO_L01N_2/VRP_2    |UNUSED   |           |2             |          |         |           |         |         |          |           |                |
+|P157      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P158      |           |         |TDO                |         |           |              |          |         |           |         |         |          |           |                |
+|P159      |           |         |TCK                |         |           |              |          |         |           |         |         |          |           |                |
+|P160      |           |         |TMS                |         |           |              |          |         |           |         |         |          |           |                |
+|P161      |           |DIFFM    |IO_L01P_1/VRN_1    |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P162      |           |DIFFS    |IO_L01N_1/VRP_1    |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P163      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P164      |           |         |VCCO_1             |         |           |1             |          |         |           |         |any******|          |           |                |
+|P165      |           |DIFFM    |IO_L10P_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P166      |           |DIFFS    |IO_L10N_1/VREF_1   |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P167      |           |IOB      |IO                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P168      |           |DIFFM    |IO_L27P_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P169      |           |DIFFS    |IO_L27N_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P170      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P171      |           |DIFFM    |IO_L28P_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P172      |           |DIFFS    |IO_L28N_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P173      |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P174      |           |         |VCCINT             |         |           |              |          |         |           |         |1.2      |          |           |                |
+|P175      |           |IOB      |IO                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P176      |           |DIFFM    |IO_L31P_1          |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P177      |           |         |VCCO_1             |         |           |1             |          |         |           |         |any******|          |           |                |
+|P178      |           |DIFFS    |IO_L31N_1/VREF_1   |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P179      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P180      |           |DIFFM    |IO_L32P_1/GCLK4    |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P181      |           |DIFFS    |IO_L32N_1/GCLK5    |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P182      |           |IOB      |IO                 |UNUSED   |           |1             |          |         |           |         |         |          |           |                |
+|P183      |           |DIFFM    |IO_L32P_0/GCLK6    |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P184      |           |DIFFS    |IO_L32N_0/GCLK7    |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P185      |           |DIFFM    |IO_L31P_0/VREF_0   |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P186      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P187      |           |DIFFS    |IO_L31N_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P188      |           |         |VCCO_0             |         |           |0             |          |         |           |         |any******|          |           |                |
+|P189      |           |IOB      |IO                 |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P190      |           |DIFFM    |IO_L30P_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P191      |           |DIFFS    |IO_L30N_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P192      |           |         |VCCINT             |         |           |              |          |         |           |         |1.2      |          |           |                |
+|P193      |           |         |VCCAUX             |         |           |              |          |         |           |         |2.5      |          |           |                |
+|P194      |           |DIFFM    |IO_L27P_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P195      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P196      |           |DIFFS    |IO_L27N_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P197      |           |IOB      |IO                 |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P198      |           |DIFFM    |IO_L25P_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P199      |           |DIFFS    |IO_L25N_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P200      |           |         |NC                 |         |           |              |          |         |           |         |         |          |           |                |
+|P201      |           |         |VCCO_0             |         |           |0             |          |         |           |         |any******|          |           |                |
+|P202      |           |         |GND                |         |           |              |          |         |           |         |         |          |           |                |
+|P203      |           |DIFFM    |IO_L01P_0/VRN_0    |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P204      |           |DIFFS    |IO_L01N_0/VRP_0    |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P205      |           |IOB      |IO/VREF_0          |UNUSED   |           |0             |          |         |           |         |         |          |           |                |
+|P206      |           |         |HSWAP_EN           |         |           |              |          |         |           |         |         |          |           |                |
+|P207      |           |         |PROG_B             |         |           |              |          |         |           |         |         |          |           |                |
+|P208      |           |         |TDI                |         |           |              |          |         |           |         |         |          |           |                |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+* Default value.
+** This default Pullup/Pulldown value can be overridden in Bitgen. 
+****** Special VCCO requirements may apply. Please consult the device 
+       family datasheet for specific guideline on VCCO requirements. 
+
+

@@ -1,0 +1,16 @@
+# Output products list for <DMem>
+DMem.asy
+DMem.gise
+DMem.ngc
+DMem.sym
+DMem.v
+DMem.veo
+DMem.vhd
+DMem.vho
+DMem.xco
+DMem.xise
+DMem_flist.txt
+DMem_xmdf.tcl
+_xmsgs\pn_parser.xmsgs
+blk_mem_gen_ds512.pdf
+blk_mem_gen_readme.txt

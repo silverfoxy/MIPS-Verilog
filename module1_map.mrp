@@ -1,0 +1,307 @@
+Release 13.1 Map O.40d (nt)
+Xilinx Mapping Report File for Design 'module1'
+
+Design Information
+------------------
+Command Line   : map -intstyle ise -p xc3s50-pq208-5 -cm area -ir off -pr off -c
+100 -o module1_map.ncd module1.ngd module1.pcf 
+Target Device  : xc3s50
+Target Package : pq208
+Target Speed   : -5
+Mapper Version : spartan3 -- $Revision: 1.55 $
+Mapped Date    : Sat Mar 15 20:40:30 2014
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   32
+Logic Utilization:
+Logic Distribution:
+    Number of Slices containing only related logic:       0 out of       0   0%
+    Number of Slices containing unrelated logic:          0 out of       0   0%
+      *See NOTES below for an explanation of the effects of unrelated logic.
+  Number of bonded IOBs:                 71 out of     124   57%
+  Number of RAMB16s:                      1 out of       4   25%
+
+Average Fanout of Non-Clock Nets:                1.10
+
+Peak Memory Usage:  185 MB
+Total REAL time to MAP completion:  2 secs 
+Total CPU time to MAP completion:   1 secs 
+
+NOTES:
+
+   Related logic is defined as being logic that shares connectivity - e.g. two
+   LUTs are "related" if they share common inputs.  When assembling slices,
+   Map gives priority to combine logic that is related.  Doing so results in
+   the best timing performance.
+
+   Unrelated logic shares no connectivity.  Map will only begin packing
+   unrelated logic into a slice once 99% of the slices are occupied through
+   related logic packing.
+
+   Note that once logic distribution reaches the 99% level through related
+   logic packing, this does not mean the device is completely utilized.
+   Unrelated logic packing will then begin, continuing until all usable LUTs
+   and FFs are occupied.  Depending on your timing budget, increased levels of
+   unrelated logic packing may adversely affect the overall timing performance
+   of your design.
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:PhysDesignRules:812 - Dangling pin <DOA4> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA5> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA6> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA7> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA12> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA13> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA14> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA15> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA20> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA21> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA22> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA23> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA28> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA29> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA30> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOA31> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.A>:<RAMB16_RAMB16A>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB4> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB5> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB6> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB7> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB12> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB13> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB14> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB15> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB20> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB21> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB22> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB23> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB28> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB29> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB30> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+WARNING:PhysDesignRules:812 - Dangling pin <DOB31> on
+   block:<your_instance_name/U0/xst_blk_mem_generator/gnativebmg.native_blk_mem_
+   gen/valid.cstr/ramloop[0].ram.r/s3_init.ram/spram.ram.B>:<RAMB16_RAMB16B>.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network clk has no load.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   3 block(s) optimized away
+
+Section 5 - Removed Logic
+-------------------------
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+GND 		your_instance_name/XST_GND
+VCC 		your_instance_name/XST_VCC
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| addra<0>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| addra<1>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| addra<2>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| addra<3>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| addra<4>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| addra<5>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<0>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<1>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<2>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<3>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<4>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<5>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<6>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<7>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<8>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<9>                            | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<10>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<11>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<12>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<13>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<14>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<15>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<16>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<17>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<18>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<19>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<20>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<21>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<22>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<23>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<24>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<25>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<26>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<27>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<28>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<29>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<30>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| dina<31>                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| douta<0>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<1>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<2>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<3>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<4>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<5>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<6>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<7>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<8>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<9>                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<10>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<11>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<12>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<13>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<14>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<15>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<16>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<17>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<18>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<19>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<20>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<21>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<22>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<23>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<24>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<25>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<26>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<27>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<28>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<29>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<30>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| douta<31>                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| wea                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+This design was not run using timing mode.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+No control set information for this architecture.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

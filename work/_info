@@ -1,0 +1,74 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Xilinx\Projects\Prj1
+vCore
+IkzGo9`gKbooYc6g>S4AnH0
+VlFWX:C05T2?If5J02m?<C3
+w1394961461
+8Core.v
+FCore.v
+L0 21
+Z1 OE;L;6.5c;42
+r1
+31
+Z2 o-L mtiAvm -L mtiOvm -L mtiUPF
+n@core
+!s100 aoC@^`fQ<?DnOkKm=E8EL0
+!s85 0
+vCore_TB
+IN^6D52FO`Dh7@`6HK44@H2
+VQk_O@_H4D[d1Ah_85iG8J1
+w1394962319
+8Core_TB.v
+FCore_TB.v
+L0 21
+R1
+r1
+31
+R2
+n@core_@t@b
+!s100 cID_iLPoKL`okPSIP3<U32
+!s85 0
+vDMem
+IG3MRFRN:eHWEWW@ZWQ4S03
+VKX>`3ha^ADo4_lAe;Afi33
+w1394960796
+8ipcore_dir/DMem.v
+Fipcore_dir/DMem.v
+L0 40
+R1
+r1
+31
+R2
+n@d@mem
+!s100 RKM]Q0J:C6<jLYhX?YdAj1
+!s85 0
+vglbl
+!s100 4=LmVFjWGlXARKf5L_9V<3
+I50KRYJEd>O4zk>d5_9h@h2
+VnN]4Gon>inod6>M^M2[SV1
+w1296771668
+8C:/Xilinx/13.1/ISE_DS/ISE//verilog/src/glbl.v
+FC:/Xilinx/13.1/ISE_DS/ISE//verilog/src/glbl.v
+L0 5
+R1
+r1
+!s85 0
+31
+R2
+vIMem
+IT0CA4_`3P[Z:XHz:R=1Sa0
+VZ7CnEzY>cHIO^4R:RBh1>1
+w1394952194
+8ipcore_dir/IMem.v
+Fipcore_dir/IMem.v
+L0 40
+R1
+r1
+31
+R2
+n@i@mem
+!s100 beR:l>bW^AF6<lde>DbFh3
+!s85 0

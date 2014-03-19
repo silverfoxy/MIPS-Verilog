@@ -1,0 +1,17 @@
+# Output products list for <SPRAM>
+SPRAM.asy
+SPRAM.gise
+SPRAM.mif
+SPRAM.ngc
+SPRAM.sym
+SPRAM.v
+SPRAM.veo
+SPRAM.vhd
+SPRAM.vho
+SPRAM.xco
+SPRAM.xise
+SPRAM_flist.txt
+SPRAM_xmdf.tcl
+_xmsgs\pn_parser.xmsgs
+blk_mem_gen_ds512.pdf
+blk_mem_gen_readme.txt
