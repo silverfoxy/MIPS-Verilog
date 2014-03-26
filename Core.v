@@ -108,7 +108,7 @@ module Core(
 		reg_din <= dout;
 	//ALUSrc Mux
 	if (ALUSrc == 1'b0)
-		ALUIn2 <= reg_raddr1;
+		ALUIn2 <= reg_dout2;
 	else
 		ALUIn2 <= {{16{instr[15]}}, instr[15:0]}; //sign extended
 
@@ -131,22 +131,88 @@ module Core(
 	begin
 		if (instr[31:26] == 6'b001000)
 			ALUOp = 4'b0001;
+		case (instr[31:26])
+		6'b000000 :
+		begin
+			//func
+			case (instr[10:0])
+				11'b00000100000 : //Add
+				begin
+					ALUOp = 4'b0000;
+				end
+				11'b00000100100 : //And
+				begin
+					ALUOp = 4'b0001;
+				end
+			endcase
+		end
+		6'b001000 :
+			ALUOp = 4'b0000;
+		default :
+		
+		endcase
 	end
 	//Control
 	always @(posedge clk)
 	begin
-		if (instr[31:26] == 6'b001000)
+		case (instr[31:26])
+		6'b000000 :
+		begin
+			//func
+			case (instr[10:0])
+				11'b00000100000, 11'b00000100001 : //Add, Addu
+				/*(Note: ALL arithmetic immediate values are sign-extended. After that, they are handled as
+				  signed or unsigned 32 bit numbers, depending upon the instruction. The only difference between
+				  signed and unsigned instructions is that signed instructions can generate an overflow exception
+				  and unsigned instructions can not. )
+				*/
+				begin
+					RegDst = 0;
+					ALUSrc = 0;
+					reg_raddr1 <= instr[25:21];
+					reg_raddr2 <= instr[20:16];
+					reg_wr_addr <= instr[15:11];
+					wr_reg = 1;
+				end
+				11'b00000100100 : //And
+				begin
+					RegDst = 0;
+					ALUSrc = 0;
+					reg_raddr1 <= instr[25:21];
+					reg_raddr2 <= instr[20:16];
+					reg_wr_addr <= instr[15:11];
+					wr_reg = 1;
+				end
+			default:
+			
+			endcase
+		end
+		6'b001000, 6'b001001 : //Addi, Addiu
 		begin
 			RegDst = 0;
-			reg_raddr1 <= instr[25:21]; //should be here or out of using!?
+			ALUSrc = 1; //immediate
+			reg_raddr1 <= instr[25:21]; //should be here or out of using statement!?
+			reg_wr_addr <= instr[20:16];
+			wr_reg = 1;
 		end
+		6'b001100 : //Andi
+		begin
+			RegDst = 0;
+			ALUSrc = 1; //immediate
+			reg_raddr1 <= instr[25:21];
+			reg_wr_addr <= instr[20:16];
+			wr_reg = 1;
+		end
+		default :
+		
+		endcase
 	end
 	//ALU
 	always @(posedge clk)
 	begin
 		/*
 		0000 : add/i/ui/u
-		 : and/i
+		0001 : and/i
 		 : or
 		 : sll
 		 : sllv
@@ -156,7 +222,8 @@ module Core(
 		 : sub/u
 		 : xor/i
 		*/
-		if (ALUOp == 4'b0000) //add
+		case (ALUOp)
+		4'b0000 : //Add
 		begin
 			wire[8:0] tmp;
 			tmp <= ALUIn2 + reg_dout1;
@@ -164,6 +231,13 @@ module Core(
 			Carry = tmp[8];
 			//Set Carry flag if signed!
 		end
+		4'b0001 : //And
+		begin
+			ALUOut = reg_dout1 & ALUIn2;
+		end
+		default :
+		
+		endcase
 	end
 
 endmodule
