@@ -21,31 +21,49 @@
 module Core(
     input clk,
     input nrst,
+	 output[31:0] instr,
     output reg[31:0] iaddr,
     output[7:0] daddr,
     output reg[31:0] dout,
-    output reg[3:0] wr, output reg[7:0] pc, output[31:0] instr, output reg[31:0] reg_din
+    output reg[3:0] wr, 
+	 output reg[7:0] pc, 
+	 output reg[31:0] reg_din,
+	 output reg[4:0] reg_raddr1,
+	 output[31:0] reg_dout1,
+	 output reg[4:0] reg_raddr2,
+	 output[31:0] reg_dout2,
+	 output reg wr_reg,
+	 output reg[4:0] reg_wr_addr,
+	 output reg[31:0] ALUOut,
+	 output reg[3:0] ALUOp,
+	 output reg ALUSrc,
+	 output[31:0] ALUIn1,
+	 output reg[31:0] ALUIn2
     );
 
    //Wires & Regs definitions
-	//wire[31:0] instr; ->moved to module outputs for debug purposes
-	reg[31:0] ALUOut;
-	reg[3:0] ALUOp;
-	reg ALUSrc;
+	//wire[31:0] instr; ->moved to module inputs for debug purposes
+	//reg[31:0] ALUOut;
+	//reg[3:0] ALUOp;
+	//reg ALUSrc;
 	reg Carry;
-	reg RegDst
-	//ALUIn1 <= reg_dout1
-	reg[31:0] ALUIn2;
+	reg RegDst;
+	reg MemToReg;
+	assign ALUIn1 = reg_dout1;
+	//reg[31:0] ALUIn2;
 	wire[7:0] din[0:3];
-	//reg[7:0] pc = 8'b00000000; ->moved to module outputs for debug purposes
+	//reg[7:0] pc = 8'b00000000;
 	reg[31:0] immediate_extended;
+	/*
 	reg[4:0] reg_raddr1;
 	wire[31:0] reg_dout1;
 	reg[4:0] reg_raddr2;
 	wire[31:0] reg_dout2;
 	wire wr_reg;
 	reg[4:0] reg_wr_addr;
-	//reg[31:0] reg_din; ->moved to module outputs for debug purposes
+	reg[31:0] reg_din; 
+	moved to module outputs for debug purposes
+	*/
 	regfile registers(
 					clk,
 					reg_raddr1,
@@ -62,7 +80,7 @@ module Core(
 	wire[31:0] dina; //not used since we don't write to imem
 	IMem imem (
 				  clk, // input clka
-				  0, // input [0 : 0] wea
+				  1'b0, // input [0 : 0] wea
 				  pc[7:2], // input [5 : 0] addra
 				  dina, // input [31 : 0] dina
 				  instr // output [31 : 0] douta
@@ -96,22 +114,15 @@ module Core(
 					  din[3] // output [7 : 0] douta
 					);	
 
+	always @*
+	begin
 	//RegDst Mux
-	if (RegDst == 1'b0)
-		reg_wr_addr <= instr[20:16];
-	else
-		reg_wr_addr <= instr[15:11];
+		reg_wr_addr = RegDst ? instr[15:11] : instr[20:16];
 	//MemToReg Mux
-	if (MemToReg == 1'b0)
-		reg_din <= ALUOut;
-	else
-		reg_din <= dout;
+		assign reg_din = MemToReg ? dout : ALUOut;
 	//ALUSrc Mux
-	if (ALUSrc == 1'b0)
-		ALUIn2 <= reg_dout2;
-	else
-		ALUIn2 <= {{16{instr[15]}}, instr[15:0]}; //sign extended
-
+		assign ALUIn2 = ALUSrc ? {{16{instr[15]}}, instr[15:0]} : reg_dout2; //sign extended
+	end
 					
 	//PC
 	always @(posedge clk)
@@ -149,7 +160,7 @@ module Core(
 		6'b001000 :
 			ALUOp = 4'b0000;
 		default :
-		
+			;
 		endcase
 	end
 	//Control
@@ -172,7 +183,8 @@ module Core(
 					reg_raddr1 <= instr[25:21];
 					reg_raddr2 <= instr[20:16];
 					reg_wr_addr <= instr[15:11];
-					wr_reg = 1;
+					wr_reg <= 1;
+					MemToReg <= 0;
 				end
 				11'b00000100100 : //And
 				begin
@@ -181,10 +193,11 @@ module Core(
 					reg_raddr1 <= instr[25:21];
 					reg_raddr2 <= instr[20:16];
 					reg_wr_addr <= instr[15:11];
-					wr_reg = 1;
+					wr_reg <= 1;
+					MemToReg <= 0;
 				end
 			default:
-			
+				;
 			endcase
 		end
 		6'b001000, 6'b001001 : //Addi, Addiu
@@ -193,7 +206,8 @@ module Core(
 			ALUSrc = 1; //immediate
 			reg_raddr1 <= instr[25:21]; //should be here or out of using statement!?
 			reg_wr_addr <= instr[20:16];
-			wr_reg = 1;
+			wr_reg <= 1;
+			MemToReg <= 0;
 		end
 		6'b001100 : //Andi
 		begin
@@ -201,14 +215,16 @@ module Core(
 			ALUSrc = 1; //immediate
 			reg_raddr1 <= instr[25:21];
 			reg_wr_addr <= instr[20:16];
-			wr_reg = 1;
+			wr_reg <= 1;
+			MemToReg <= 0;
 		end
 		default :
-		
+			;
 		endcase
 	end
 	//ALU
-	always @(posedge clk)
+	reg[32:0] tmp; //used in add, to compute carry
+	always @*
 	begin
 		/*
 		0000 : add/i/ui/u
@@ -225,18 +241,17 @@ module Core(
 		case (ALUOp)
 		4'b0000 : //Add
 		begin
-			wire[8:0] tmp;
 			tmp <= ALUIn2 + reg_dout1;
-			ALUOut = tmp[7:0];
-			Carry = tmp[8];
+			ALUOut <= tmp[31:0];
+			Carry = tmp[32];
 			//Set Carry flag if signed!
 		end
 		4'b0001 : //And
 		begin
-			ALUOut = reg_dout1 & ALUIn2;
+			ALUOut <= reg_dout1 & ALUIn2;
 		end
 		default :
-		
+			;
 		endcase
 	end
 

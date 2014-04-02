@@ -8,7 +8,7 @@
 <!-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/Xilinx/Projects/Prj1/Core_TB.v\&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1693" ><arg fmt="%s" index="1">Analyzing Verilog file \&quot;C:/Xilinx/Projects/Prj1/Core.v\&quot; into library work</arg>
 </msg>
 
 </messages>

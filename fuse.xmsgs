@@ -5,14 +5,5 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="HDLCompiler" num="189" delta="unknown" >"C:/Xilinx/Projects/Prj1/Core.v" Line 60: Size mismatch in connection of port &lt;<arg fmt="%s" index="3">wea</arg>&gt;. Formal port size is <arg fmt="%d" index="2">1</arg>-bit while actual signal size is <arg fmt="%d" index="1">32</arg>-bit.
-</msg>
-
-<msg type="error" file="Simulator" num="904" delta="unknown" >Unable to remove previous simulation file <arg fmt="%s" index="1">isim/Core_TB_isim_beh.exe.sim/Core_TB_isim_beh.exe</arg>. Please check if you have another instance of this simulation running on your system, terminate it and then recompile your design. System Error Message: <arg fmt="%s" index="2">boost::filesystem::remove: Access is denied: &quot;isim\Core_TB_isim_beh.exe.sim\Core_TB_isim_beh.exe&quot;</arg>
-</msg>
-
-<msg type="error" file="Simulator" num="861" delta="unknown" >Failed to link the design
-</msg>
-
 </messages>
 

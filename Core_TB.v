@@ -19,56 +19,63 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 
-//baraye test khate 152 Core.v ro uncomment konid ta src register meghdar begire ke addi anjam beshe
-//run for 7000ns
-/*
-coe file contains:
-00000000000000000000000000000000,
-00000000000000000000000000000001,
-00000000000000000000000000000010,
-00000000000000000000000000000011,
-00000000000000000000000000000100,
-00000000000000000000000000000101,
-00000000000000000000000000000110,
-00000000000000000000000000000111,
-00100000000000010000000000000011;
-last instruction is addi
-*/
 module Core_TB(
     );
 	 reg clk;
 	 reg nrst;
+	 wire[31:0] instr;
 	 wire[31:0] iaddr;
     wire[7:0] daddr;
-    wire[7:0] dout;
+    wire[31:0] dout;
     wire[3:0] wr;
 	 wire[7:0] pc;
-	 wire[31:0] instr;
 	 wire[31:0] reg_din;
+	 wire[4:0] reg_raddr1;
+	 wire[31:0] reg_dout1;
+	 wire[4:0] reg_raddr2;
+	 wire[31:0] reg_dout2;
+	 wire wr_reg;
+	 wire[4:0] reg_wr_addr;
+	 wire[31:0] ALUOut;
+	 wire[3:0] ALUOp;
+	 wire ALUSrc;
+	 wire[31:0] ALUIn1;
+	 wire[31:0] ALUIn2;
 	 Core c (
 				clk,
 				nrst,
+				instr,
 				iaddr,
 				daddr,
 				dout,
 				wr,
 				pc,
-				instr,
-				reg_din
+				reg_din,
+				reg_raddr1,
+				reg_dout1,
+				reg_raddr2,
+				reg_dout2,
+				wr_reg,
+				reg_wr_addr,
+				ALUOut,
+				ALUOp,
+				ALUSrc,
+				ALUIn1,
+				ALUIn2
 				);
 		
 		initial
 		begin
 			clk = 0;
 			forever begin
-				#200  clk = ~clk;
+				#20  clk = ~clk;
 			end
 		end
 		
 		initial
 		begin
 			nrst = 0;
-			#1000
+			#100
 			nrst = 1;
 		end
 	

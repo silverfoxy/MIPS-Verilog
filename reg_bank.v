@@ -18,8 +18,8 @@ module regfile(clk, raddr1, dout1, raddr2, dout2, wr, waddr, din);
 			ram[waddr] = din;
 	end
 	
-	assign dout1 = ram[raddr1];
-	assign dout2 = ram[raddr2];
+	assign dout1 = (raddr1 == 4'b0) ? 32'b0 : ram[raddr1];
+	assign dout2 = (raddr2 == 4'b0) ? 32'b0 : ram[raddr2];
 	// End  of internal part
 	
 endmodule
