@@ -1,5 +1,0 @@
-verilog work "ipcore_dir/IMem.v"
-verilog work "reg_bank.v"
-verilog work "ipcore_dir/DMem.v"
-verilog work "Core.v"
-verilog work "Core_TB.v"

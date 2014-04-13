@@ -28,7 +28,7 @@ module Core_TB(
     wire[7:0] daddr;
     wire[31:0] dout;
     wire[3:0] wr;
-	 wire[7:0] pc;
+	 wire[31:0] pc;
 	 wire[31:0] reg_din;
 	 wire[4:0] reg_raddr1;
 	 wire[31:0] reg_dout1;
@@ -41,6 +41,14 @@ module Core_TB(
 	 wire ALUSrc;
 	 wire[31:0] ALUIn1;
 	 wire[31:0] ALUIn2;
+	 wire MemToReg;
+	 wire RegDst;
+	 wire PCSrc;
+	 wire[31:0] ram1;
+	 wire[31:0] ram2;
+	 wire[31:0] ram3;
+	 wire Zero;
+	 wire Branch;
 	 Core c (
 				clk,
 				nrst,
@@ -61,7 +69,15 @@ module Core_TB(
 				ALUOp,
 				ALUSrc,
 				ALUIn1,
-				ALUIn2
+				ALUIn2,
+				MemToReg,
+				RegDst,
+				PCSrc,
+				ram1,
+				ram2,
+				ram3,
+				Zero,
+				Branch
 				);
 		
 		initial
@@ -75,7 +91,7 @@ module Core_TB(
 		initial
 		begin
 			nrst = 0;
-			#100
+			#75
 			nrst = 1;
 		end
 	

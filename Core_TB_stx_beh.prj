@@ -1,4 +1,0 @@
-verilog isim_temp "reg_bank.v"
-verilog isim_temp "Core.v"
-verilog isim_temp "Core_TB.v"
-verilog isim_temp "C:/Xilinx/13.1/ISE_DS/ISE//verilog/src/glbl.v"

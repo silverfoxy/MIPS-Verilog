@@ -1,3 +1,0 @@
-verilog work "ipcore_dir/Mem_Test1.v"
-verilog work "ipcore_dir/SPRAM.v"
-verilog work "module1.v"

@@ -1,5 +1,0 @@
-xst -intstyle ise -ifn "C:/Xilinx/Projects/Prj1/module1.xst" -ofn "C:/Xilinx/Projects/Prj1/module1.syr" 
-ngdbuild -intstyle ise -dd _ngo -sd ipcore_dir -nt timestamp -i -p xc3s50-pq208-5 module1.ngc module1.ngd  
-map -intstyle ise -p xc3s50-pq208-5 -cm area -ir off -pr off -c 100 -o module1_map.ncd module1.ngd module1.pcf 
-par -w -intstyle ise -ol high -t 1 module1_map.ncd module1.ncd module1.pcf 
-trce -intstyle ise -v 3 -s 5 -n 3 -fastpaths -xml module1.twx module1.ncd -o module1.twr module1.pcf 
