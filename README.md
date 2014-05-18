@@ -11,7 +11,7 @@ MIPS R3000 processor verilog code to be synthesized on Spartan 3E FPGA board.
   <li>.coe TestCases</li>
 </ul>
 
-In order to run this project, you might need to regenerate memories for Instruction and Data Memory using IPCore in Xilinx. You can then load the coe files in your Instruction memory.
+In order to run this project, you might need to regenerate memories for Instruction and Data Memory using IPCore in Xilinx ISE Tools. You can then load the coe files in your Instruction memory.
 
 <h3>Single Cycle Processor</h3>
 This part lacks unaligned load in memory and lh sh instructions.
