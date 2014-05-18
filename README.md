@@ -1,7 +1,7 @@
-MIPS-Verilog
-============
+MIPS R3000 Verilog Code
+=======================
 
-mips r3000 processor verilog code to be synthesized on Spartan 3E FPGA.
+MIPS R3000 processor verilog code to be synthesized on Spartan 3E FPGA board.
 
 <h3>This project consists of 4 Parts :</h3>
 <ul>
