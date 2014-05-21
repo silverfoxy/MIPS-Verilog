@@ -21,7 +21,7 @@
 module Core(
     input clk,
     input nrst,
-	 /*output instr,
+	 output instr,
 	 output IFID_instr,
 	 output IDEX_instr,
 	 output EXMEM_instr,
@@ -60,11 +60,11 @@ module Core(
 	 output RegDst,
 	 output EXMEM_RegDst,
 	 output MEMWB_RegDst,
-	 output PCSrc,*/
-	 output wire[31:0] ram1
-	 //output wire[31:0] ram2,
-	 //output wire[31:0] ram3
-	 /*output Zero,
+	 output PCSrc,
+	 output wire[31:0] ram1,
+	 output wire[31:0] ram2,
+	 output wire[31:0] ram3,
+	 output Zero,
 	 output Branch,
 	 output Jump,
 	 output M3_Select,
@@ -87,7 +87,7 @@ module Core(
 	 output EXMEM_RegisterRs,
 	 output MEMWB_RegisterRd,
 	 output MEMWB_RegisterRt,
-	 output MEMWB_RegisterRs*/
+	 output MEMWB_RegisterRs
 	 );
 
 	
@@ -194,9 +194,9 @@ module Core(
 					reg_wr_addr,
 					reg_din,
 					nrst,
-					ram1
-					//ram2,
-					//ram3
+					ram1,
+					ram2,
+					ram3
 					);
 	
 	
@@ -246,9 +246,9 @@ module Core(
 	begin
 	//PCSrc Mux & Jump
 		//4'b0000 because our memory real pc is 8 bits and 4 MSBs are always 0 in our case
-		JDest <= JR ? (reg_dout1 << 2) : {4'b0000, IFID_instr[25:0], 2'b00};
+		JDest <= JR ? (IDEX_reg_dout1 << 2) : {4'b0000, IDEX_instr[25:0], 2'b00};
 		j_pc <= Jump ? JDest : pc + 32'b100;
-		shifted_pc <= (({{16{IFID_instr[15]}}, IFID_instr[15:0]}) << 2) + (pc + 32'b100);
+		shifted_pc <= (({{16{IDEX_instr[15]}}, IDEX_instr[15:0]}) << 2) + (IDEX_pc + 32'b100);
 		PCSrc <= Branch & Zero;
 		next_pc <= PCSrc ? shifted_pc : j_pc;
 	//RegDst Mux
@@ -256,7 +256,7 @@ module Core(
 		reg_raddr1 <= IFID_instr[25:21];
 		reg_raddr2 <= IFID_instr[20:16];
 		
-		IFID_RegisterRd <= IFID_instr[15:11];//IFID_instr[31:26] == 6'b100011) ? IFID_instr[20:16] : IFID_instr[15:11]; //LW : else
+		IFID_RegisterRd <= IFID_instr[31:26] == 6'b001000 ? IFID_instr[20:16] : IFID_instr[15:11];//IFID_instr[31:26] == 6'b100011) ? IFID_instr[20:16] : IFID_instr[15:11]; //LW : else
 		IFID_RegisterRt <= IFID_instr[20:16];
 		IFID_RegisterRs <= IFID_instr[25:21];
 		
@@ -275,11 +275,11 @@ module Core(
 	//PC
 	always @(posedge clk)
 	begin
-		if (!nrst)
+		if (~nrst)
 		begin
 			 pc = 32'b0;
-			 //Branch <= 0;
-			 //Jump <= 0;
+			 Branch <= 0;
+			 Jump <= 0;
 			//ALUOut <= 32'b0;
 		end
 		else
@@ -345,7 +345,7 @@ module Core(
 			ALUOp = 4'b0000;
 		6'b001000 , 6'b001001 :
 			ALUOp = 4'b0000; // ADDI
-		6'b00100, 6'b000001, 6'b000111, 6'b000110, 6'b000001, 6'b000101 : // BEQ, BGEZ, BGEZAL, BGTZ, BLEZ, BLTZ, BLTZAL, BNE
+		6'b000100, 6'b000001, 6'b000111, 6'b000110, 6'b000001, 6'b000101 : // BEQ, BGEZ, BGEZAL, BGTZ, BLEZ, BLTZ, BLTZAL, BNE
 			ALUOp = 4'b0100; // (uses Sub)			
 		6'b100000 :  //  	LB
 			ALUOp = 4'b0000;
@@ -404,7 +404,7 @@ module Core(
 						Branch <= 0;
 						Jump <= 0;
 					end
-					/*11'b00000000000 : //???????????????
+					11'b00000000000 : //???????????????
 					case(IFID_instr[5:0])
 						6'b000000 : //SLL
 						begin
@@ -416,11 +416,11 @@ module Core(
 							Jump <= 0;
 							shamt <= IDEX_instr[10:6];
 						end
-					endcase*/
+					endcase
 					11'b00000001000 : //JR
 						if (IFID_instr[20:0] == 21'b1000)
 						begin
-							//reg_raddr1 <= instr[25:21];
+							reg_raddr1 <= instr[25:21];
 							wr_reg <= 0;
 							wr <= 4'b0000;
 							Branch <= 0;
@@ -441,6 +441,15 @@ module Core(
 				Branch <= 0;
 				Jump <= 0;
 			end
+			6'b000100 : //BEQ
+			begin
+				Branch <= 1;
+				Jump <= 0;
+				MemToReg <= 0;
+				wr_reg <= 0;
+				wr <= 0;
+				ALUSrc <= 0;
+			end
 			//======================= MEMORY ==========================
 			6'b100000 :  //  	LB
 				begin
@@ -454,7 +463,7 @@ module Core(
 					//reg_wr_addr <= instr[20:16];
 					wr_reg <= 1;
 					MemToReg <= 1;
-					//PCSrc <= 0;
+					PCSrc <= 0;
 					Branch <= 0;
 					Jump <= 0;
 				end
@@ -470,7 +479,7 @@ module Core(
 					//reg_wr_addr <= instr[20:16];
 					wr_reg <= 1;
 					MemToReg <= 1;
-					//PCSrc <= 0;
+					PCSrc <= 0;
 					Branch <= 0;
 					Jump <= 0;
 				end
@@ -481,10 +490,10 @@ module Core(
 					wr[1] <= 0;
 					wr[2] <= 0;
 					wr[3] <= 0;
-					//reg_raddr2 <= IFID_instr[20:16];
+					reg_raddr2 <= IFID_instr[20:16];
 					wr_reg <= 0;
 					MemToReg <= 0;
-					//PCSrc <= 0;
+					PCSrc <= 0;
 					Branch <= 0;
 					Jump <= 0;
 				end
@@ -495,10 +504,10 @@ module Core(
 					wr[1] <= 1;
 					wr[2] <= 1;
 					wr[3] <= 1;
-					//reg_raddr2 <= IFID_instr[20:16];
+					reg_raddr2 <= IFID_instr[20:16];
 					wr_reg <= 0;
 					MemToReg <= 0;
-					//PCSrc <= 0;
+					PCSrc <= 0;
 					Branch <= 0;
 					Jump <= 0;
 				end
