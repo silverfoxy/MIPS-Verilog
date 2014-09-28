@@ -27,7 +27,7 @@ This part lacks jump instructions and lh, sh and unaligned load.
 
 <h3>Core.v</h3>
 This file consists of the main parts of our processor. Instruction Fetch is done using the generated Instruction Memory. 
-Instruction Decode is done using an always loop, Control Unit is also implemented as an always block, ALU has another always block on it's own.
+Instruction Decode is done using an always loop, Control Unit is also implemented as an always block, ALU has another always block on its own.
 The forwarding multiplexers and forwarding unit has another always block.
 
 <h3>Core_TB.v</h3>
